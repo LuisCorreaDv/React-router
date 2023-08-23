@@ -1,7 +1,8 @@
 import './assets/css/base/base.css';
 import './assets/css/componentes/card.css'
-import Home from "./pages/Home"
-import Sobre from "./pages/Sobre"
+import Home from "./pages/Home";
+import Sobre from "./pages/Sobre";
+import Page404 from './pages/Page404';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ function App() {
         {/* Definiendo rutas de la página*/}
         <Route path='/' element={<Home />}/>
         <Route path='/sobre' element={<Sobre />} />
+        <Route path='*' element={<Page404 />} />
       </Routes>
     </Router>
   );
