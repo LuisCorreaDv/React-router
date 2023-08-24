@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Page404 from './pages/Page404';
 import Header from './components/header';
+import Post from './pages/Post';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ function App() {
         {/* Definiendo rutas de la página*/}
         <Route path='/' element={<Home />}/>
         <Route path='/sobre' element={<Sobre />} />
+        <Route path='/posts/:id' element={<Post />} />
         <Route path='*' element={<Page404 />} />
       </Routes>
     </Router>
