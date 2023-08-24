@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react"
 import "../assets/css/componentes/card.css"
 //Libreria de React Dom
-import { useParams } from "react-router-dom"
+//seNavigate ayuda a navegar a una ruta en especifico 
+import { useParams, useNavigate } from "react-router-dom"
 import { buscar } from "../api/api"
 
 const Post = ({ url }) => {
@@ -11,11 +12,15 @@ const Post = ({ url }) => {
 
     const { id } = useParams()
 
+    const navigate = useNavigate()
+
     //useEffect se usa para poder comunciarse con un servidor
     useEffect(() => {
-        buscar(`/posts/${id}`, setPost)
+        buscar(`/posts/${id}`, setPost).catch(() => {
+            navigate("/not-found")
+        })
         //Se ejecuta cada que cambia el id
-    },/*Callback*/ [id])
+    },/*Callback*/ [id, navigate])
 
     return (
         <main className="container flex flex--center">
